@@ -1,0 +1,23 @@
+script powershell qui :
+- affiche le chemin complet du répertoire personnel de l'utilisateur courant
+- affiche le chemin complet du profil powershell pour l'utilisateur actuel et l'application hote actuelle.
+- la langue utilisée
+- le type d'architecture utilisée par le processeur
+
+
+
+# Affiche le chemin complet du répertoire personnel de l'utilisateur courant
+$homeDirectory = [System.Environment]::GetFolderPath("UserProfile")
+Write-Host "Répertoire personnel de l'utilisateur courant : $homeDirectory"
+
+# Affiche le chemin complet du profil PowerShell pour l'utilisateur actuel et l'application hôte actuelle
+$profilePath = $PROFILE
+Write-Host "Chemin complet du profil PowerShell pour l'utilisateur actuel et l'application hôte actuelle : $profilePath"
+
+# Affiche la langue utilisée
+$currentCulture = [System.Globalization.CultureInfo]::CurrentCulture.Name
+Write-Host "Langue utilisée : $currentCulture"
+
+# Affiche le type d'architecture utilisée par le processeur
+$processorArchitecture = [System.Environment]::GetEnvironmentVariable("PROCESSOR_ARCHITECTURE")
+Write-Host "Type d'architecture utilisée par le processeur : $processorArchitecture"
