@@ -21,3 +21,25 @@ Write-Host "Langue utilisée : $currentCulture"
 # Affiche le type d'architecture utilisée par le processeur
 $processorArchitecture = [System.Environment]::GetEnvironmentVariable("PROCESSOR_ARCHITECTURE")
 Write-Host "Type d'architecture utilisée par le processeur : $processorArchitecture"
+
+
+
+Explication du script
+Répertoire personnel de l'utilisateur courant :
+
+La méthode [System.Environment]::GetFolderPath("UserProfile") est utilisée pour obtenir le chemin complet du répertoire personnel de l'utilisateur courant.
+Write-Host affiche cette information.
+Chemin complet du profil PowerShell pour l'utilisateur actuel et l'application hôte actuelle :
+
+La variable automatique $PROFILE contient le chemin complet du profil PowerShell pour l'utilisateur actuel et l'application hôte actuelle.
+Write-Host affiche cette information.
+Langue utilisée :
+
+La propriété [System.Globalization.CultureInfo]::CurrentCulture.Name est utilisée pour obtenir la langue courante du système.
+Write-Host affiche cette information.
+Type d'architecture utilisée par le processeur :
+
+La variable d'environnement PROCESSOR_ARCHITECTURE contient le type d'architecture utilisée par le processeur (par exemple, AMD64 pour les processeurs x64).
+[System.Environment]::GetEnvironmentVariable("PROCESSOR_ARCHITECTURE") est utilisé pour obtenir cette information.
+Write-Host affiche cette information.
+Enregistrez ce script dans un fichier avec l'extension .ps1, par exemple DisplaySystemInfo.ps1, et exécutez-le dans PowerShell pour voir les informations affichées.
