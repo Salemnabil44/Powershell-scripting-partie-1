@@ -1,0 +1,15 @@
+Script powershell capable de compter les lignes d'un fichier .txt
+
+# Demande à l'utilisateur de spécifier le chemin du fichier .txt
+$filePath = Read-Host "Veuillez entrer le chemin complet du fichier .txt"
+
+# Vérifie si le fichier existe
+if (Test-Path $filePath) {
+    # Utilise Get-Content pour lire le fichier et Measure-Object pour compter les lignes
+    $lineCount = Get-Content $filePath | Measure-Object -Line
+
+    # Affiche le nombre de lignes
+    Write-Host "Le fichier '$filePath' contient $($lineCount.Lines) lignes."
+} else {
+    Write-Host "Le fichier spécifié n'existe pas. Veuillez vérifier le chemin et réessayer."
+}
